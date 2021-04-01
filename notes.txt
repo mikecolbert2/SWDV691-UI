@@ -1,0 +1,19 @@
+
+Create a new app
+ng new <my-app>
+
+
+Launch the server and open the project
+ng serve -o
+
+
+Build the project
+ng Build
+
+
+Generate components
+ng generate components components/<component-name>
+
+ng g c components/<component-name>
+
+ng generate module app-routing
