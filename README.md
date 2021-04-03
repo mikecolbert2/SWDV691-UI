@@ -1,8 +1,6 @@
 # Time Detective - User Interface
-![HTML5](https://img.shields.io/badge/-HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/-Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white)
-![CSS](https://img.shields.io/badge/-CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JS](https://img.shields.io/badge/-JavaScript-black?style=flat&logo=javascript&logoColor=eed718)
+![Angular](https://badges.aleen42.com/src/angular.svg)
+
 
 ### SWDV691 - Software Development Capstone
 
