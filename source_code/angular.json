@@ -94,8 +94,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
-            ],
+              "../node_modules/bootstrap/dist/scss/bootstrap.scss",
+              "styles.scss"
+           ],
             "scripts": []
           }
         },

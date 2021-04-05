@@ -1,0 +1,22 @@
+@import "../../../../styles/custom.scss";
+
+.footer {
+  background-color: $purple;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.footer-text {
+  color: $white;
+  opacity: 0.5;
+}
+
+a.footer,
+a:visited.footer {
+  text-decoration: none;
+  color: $white;
+  opacity: 1;
+}
+
+a:hover.footer {
+  color: $gray;
+}

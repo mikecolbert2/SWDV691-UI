@@ -1,0 +1,52 @@
+@import "../../../../styles/custom.scss";
+
+h1 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.25rem;
+  color: $gray;
+}
+
+.f1 {
+  background-color: $white;
+  border: 2px $yellow solid;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.f2 {
+  background-color: $white;
+  border: 2px $orange solid;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.f3 {
+  background-color: $white;
+  border: 2px $purple solid;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.sign-up {
+  background-color: $white;
+  border: 2px $blue solid;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.width {
+  width: 100%;
+}
