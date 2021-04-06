@@ -12,6 +12,9 @@ import { WelcomeComponent } from './components/pages/welcome/welcome.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { HeaderComponent } from './components/layouts/header/header.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
+import { RegisterUserComponent } from './components/users/register-user/register-user.component';
+import { UserManagerComponent } from './components/admin/user-manager/user-manager.component';
+import { ListAllUsersComponent } from './components/admin/list-all-users/list-all-users.component';
 
 
 
@@ -23,7 +26,10 @@ import { FooterComponent } from './components/layouts/footer/footer.component';
     WelcomeComponent,
     AboutComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    RegisterUserComponent,
+    UserManagerComponent,
+    ListAllUsersComponent
   ],
   imports: [
     BrowserModule,
