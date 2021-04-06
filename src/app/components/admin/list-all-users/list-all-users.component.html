@@ -1,1 +1,7 @@
-<p>table of users</p>
+<ul *ngFor="let user of users">
+  <li>
+    {{ user.user_id }} || {{ user.first_name }} || {{ user.last_name }} ||
+    {{ user.email }}|| {{ user.password }} || {{ user.role_name }} ||
+    {{ user.date_created | date }} || {{ user.last_login | date }}
+  </li>
+</ul>
