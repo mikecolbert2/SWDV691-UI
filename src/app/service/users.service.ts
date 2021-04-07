@@ -24,14 +24,20 @@ export class UsersService {
   getAllUsers():Observable<User[]> {
    let url = this.apiUrl + "/admin/users"
    console.log(url)
-   return this.http.get<User[]>(`${this.apiUrl}` + "/admin/users");
+   return this.http.get<User[]>(url);
   }
 
-  // Register User
+ // Register User
   registerUser(user:User):Observable<User> {
-    console.log(user)
-    return this.http.post<User>(this.apiUrl, user, httpOptions);
+
+    // this never displays in the console
+    console.log('inside register user')
+    
+    let url = this.apiUrl + "/user/register"
+    return this.http.post<User>(url, user, httpOptions);
   }
+
+
 
 
 }
