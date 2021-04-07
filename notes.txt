@@ -17,3 +17,7 @@ ng generate components components/<component-name>
 ng g c components/<component-name>
 
 ng generate module app-routing
+
+
+
+(ngSubmit)="onSubmit()

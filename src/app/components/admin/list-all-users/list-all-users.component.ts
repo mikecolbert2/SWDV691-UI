@@ -14,10 +14,25 @@ export class ListAllUsersComponent implements OnInit {
 
   constructor(private userService: UsersService) { }
 
-  ngOnInit(): void {
-    this.userService.getAllUsers().subscribe(users => {
-      this.users = users;
-    });
+  ngOnInit() {
+    this.getAllUsers();
   }
 
+  // ngOnInit(): void {
+  //   this.userService.getAllUsers().subscribe(users => {
+  //     this.users = users;
+  //   });
+  // }
+
+  getAllUsers(){
+    this.userService.getAllUsers().subscribe(users => {
+      this.users = users;
+     });
+  }
+
+  deleteUser(user_id:any){
+    console.log('inside delete user');
+    console.log(user_id);
+    this.userService.removeUser(user_id);
+  }
 }

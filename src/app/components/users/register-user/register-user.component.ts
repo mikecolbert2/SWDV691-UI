@@ -1,7 +1,6 @@
 import { Component, OnInit, EventEmitter, Output  } from '@angular/core';
 import { UsersService } from "../../../service/users.service";
 
-
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
@@ -22,7 +21,7 @@ export class RegisterUserComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
+  registerNewUser() {
     const user = {
       first_name: this.first_name,
       last_name: this.last_name,
@@ -30,12 +29,11 @@ export class RegisterUserComponent implements OnInit {
       password: this.password,
       password2: this.password2
     }
-    // these work - they display in the console
     console.log('inside onSubmit');
-    console.log(user)
+    console.log(user);
 
-    //this doesn't seem to be executing
-    this.registerUser.emit(user);
+     //this.usersService.registerUser.emit(user);
+    this.usersService.newUser(user)
   }
 
 

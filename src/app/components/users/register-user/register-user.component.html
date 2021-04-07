@@ -1,6 +1,6 @@
 <h1>Register New User</h1>
 
-<form class="form" (ngSubmit)="onSubmit()">
+<form class="form">
   <div class="form-group">
     <label class="lbl" for="first_name"> First Name: </label>
     <input
@@ -47,5 +47,11 @@
     />
   </div>
   <label class="lbl" for="submit_btn"> </label>
-  <input class="btn" type="submit" value="Submit" name="submit_btn" />
+  <input
+    class="btn"
+    type="submit"
+    value="Submit"
+    name="submit_btn"
+    (click)="registerNewUser()"
+  />
 </form>
