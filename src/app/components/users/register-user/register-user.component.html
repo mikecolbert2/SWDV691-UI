@@ -1,15 +1,51 @@
 <h1>Register New User</h1>
 
 <form class="form" (ngSubmit)="onSubmit()">
-  <input
-    class="inputField"
-    type="text"
-    name="first_name"
-    [(ngModel)]="first_name"
-  />
-  <input type="text" name="last_name" [(ngModel)]="last_name" />
-  <input type="text" name="email" [(ngModel)]="email" />
-  <input type="text" name="password" [(ngModel)]="password" />
-  <input type="text" name="password2" [(ngModel)]="password2" />
-  <input type="submit" value="Submit" class="btn" />
+  <div class="form-group">
+    <label class="lbl" for="first_name"> First Name: </label>
+    <input
+      class="inputbox"
+      type="text"
+      name="first_name"
+      [(ngModel)]="first_name"
+      autofocus
+    />
+  </div>
+
+  <div class="form-group">
+    <label class="lbl" for="last_name"> Last Name: </label>
+    <input
+      class="inputbox"
+      type="text"
+      name="last_name"
+      [(ngModel)]="last_name"
+    />
+  </div>
+
+  <div class="form-group">
+    <label class="lbl" for="email"> Email: </label>
+    <input class="inputbox" type="text" name="email" [(ngModel)]="email" />
+  </div>
+
+  <div class="form-group">
+    <label class="lbl" for="password"> Password: </label>
+    <input
+      class="inputbox"
+      type="text"
+      name="password"
+      [(ngModel)]="password"
+    />
+  </div>
+
+  <div class="form-group">
+    <label class="lbl-confirm" for="password2"> Confirm Password: </label>
+    <input
+      class="inputbox"
+      type="text"
+      name="password2"
+      [(ngModel)]="password2"
+    />
+  </div>
+  <label class="lbl" for="submit_btn"> </label>
+  <input class="btn" type="submit" value="Submit" name="submit_btn" />
 </form>
