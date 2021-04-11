@@ -1,25 +1,25 @@
-import { Component, OnInit, EventEmitter, Output  } from '@angular/core';
-import { UsersService } from "../../../service/users.service";
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { UsersService } from '../../../service/users.service';
 
 @Component({
   selector: 'app-register-user',
   templateUrl: './register-user.component.html',
-  styleUrls: ['./register-user.component.scss']
+  styleUrls: ['./register-user.component.scss'],
 })
 export class RegisterUserComponent implements OnInit {
   @Output() registerUser: EventEmitter<any> = new EventEmitter();
 
-  first_name?:string;
-  last_name?:string;
-  email?:string;
-  password?:string;
-  password2?:string;
+  user: any = [];
 
+  first_name?: string;
+  last_name?: string;
+  email?: string;
+  password?: string;
+  password2?: string;
 
-  constructor(private usersService:UsersService) { }
+  constructor(private usersService: UsersService) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   registerNewUser() {
     const user = {
@@ -27,15 +27,12 @@ export class RegisterUserComponent implements OnInit {
       last_name: this.last_name,
       email: this.email,
       password: this.password,
-      password2: this.password2
-    }
+      password2: this.password2,
+    };
     console.log('inside onSubmit');
     console.log(user);
 
-     //this.usersService.registerUser.emit(user);
-    this.usersService.newUser(user)
+    //this.usersService.registerUser.emit(user);
+    this.usersService.newUser(user);
   }
-
-
-
 }

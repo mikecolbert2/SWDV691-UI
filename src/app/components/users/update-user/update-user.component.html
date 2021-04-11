@@ -1,7 +1,7 @@
 <h1>Update User Details</h1>
 
-<form class="form" *ngFor="let u of user">
-  <p>User ID: {{ u.user_id }}</p>
+<form class="form" *ngFor="let user of users">
+  <p>User ID: {{ user.user_id }}</p>
 
   <div class="form-group">
     <label class="lbl" for="first_name"> First Name: </label>
@@ -9,8 +9,7 @@
       class="inputbox"
       type="text"
       name="first_name"
-      value="{{ u.first_name }}"
-      [(ngModel)]="first_name"
+      value="{{ user.first_name }}"
       autofocus
     />
   </div>
@@ -21,20 +20,13 @@
       class="inputbox"
       type="text"
       name="last_name"
-      value="{{ u.last_name }}"
-      [(ngModel)]="last_name"
+      value="{{ user.last_name }}"
     />
   </div>
 
   <div class="form-group">
     <label class="lbl" for="email"> Email: </label>
-    <input
-      class="inputbox"
-      type="text"
-      name="email"
-      value="{{ u.email }}"
-      [(ngModel)]="email"
-    />
+    <input class="inputbox" type="text" name="email" value="{{ user.email }}" />
   </div>
 
   <div class="form-group">
@@ -57,15 +49,22 @@
     />
   </div>
 
-  <p>Date created: {{ u.date_created }}</p>
-  <p>Last login: {{ u.last_login }}</p>
+  <p>Date created: {{ user.date_created }}</p>
+  <p>Last login: {{ user.last_login }}</p>
 
-  <button (click)="updateUser(u)" class="btn btn-sm btn-danger btn-delete-user">
+  <button
+    (click)="updateUser(user)"
+    class="btn btn-sm btn-danger btn-delete-user"
+  >
     Update
   </button>
 </form>
 
-<div *ngIf="!user">
+<div *ngIf="!users">
   <br />
   <p>Cannot access this user ...</p>
+</div>
+<div *ngIf="users">
+  <br />
+  <p>User ...</p>
 </div>

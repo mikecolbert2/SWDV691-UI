@@ -1,8 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-// import { first } from 'rxjs/operators';
 import { UsersService } from '../../../service/users.service';
 import { User } from '../../../models/User';
+import { first } from 'rxjs/operators';
+import { textChangeRangeIsUnchanged } from 'typescript';
 
 @Component({
   selector: 'app-update-user',
@@ -10,11 +11,11 @@ import { User } from '../../../models/User';
   styleUrls: ['./update-user.component.scss'],
 })
 export class UpdateUserComponent implements OnInit {
-  user_id: string = '';
-  user: any = [];
+  users: any = [];
 
-  first_name?: string;
-  last_name?: string;
+  user_id: string = '';
+  first_name: string = '';
+  last_name: string = '';
   email?: string;
   password?: string;
   password2?: string;
@@ -25,33 +26,34 @@ export class UpdateUserComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getUser(this.route.snapshot.params['user_id']);
+    //this.getUser(this.route.snapshot.params['user_id']);
+
+    this.userService
+      .getById(this.route.snapshot.params['user_id'])
+      .subscribe((response: any) => {
+        this.users = response;
+      });
   }
 
-  getUser(user_id: string): void {
-    this.user = this.userService.getById(user_id).subscribe(
-      (data) => {
-        this.user = data;
-        console.log(data);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  // getUser(user_id: string): void {
+  //   let user = this.userService.getById(user_id).subscribe((users: User[]) => {
+  //     this.users = users;
+  //   });
+  // }
 
-  updateUser(u: any): void {
-    const user = {
+  updateUser(user: any): void {
+    const updated_user = {
+      user_id: this.user_id,
       first_name: this.first_name,
       last_name: this.last_name,
       email: this.email,
       password: this.password,
       password2: this.password2,
     };
-    console.log('inside onSubmit');
-    console.log(user);
+    console.log('inside update User');
+    console.log(updated_user);
 
     //this.usersService.registerUser.emit(user);
-    this.userService.updateUser(user);
+    this.userService.editUser(user);
   }
 }
