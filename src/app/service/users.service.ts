@@ -1,10 +1,10 @@
 import { Injectable, NgModule } from '@angular/core';
 import { BehaviorSubject, Observable, pipe } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-import { Subject } from 'rxjs';
+//import { Subject } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { UsersRoutingModule } from '../components/admin/user-manager/admin-routing.module';
+//import { UsersRoutingModule } from '../components/admin/user-manager/admin-routing.module';
 
 import { User } from '../models/User';
 
@@ -22,7 +22,7 @@ export class UsersService {
   public user: Observable<User>;
 
   apiUrl: string = 'https://swdv691-services.herokuapp.com/api';
-  // users: any = [];
+  users: any = [];
   // dataChanged$: Observable<boolean>;
   //private dataChangeSubject: Subject<boolean>;
 
@@ -79,17 +79,10 @@ export class UsersService {
   }
 
   // Get single user
-  getUser(user_id: any) {
+  getById(user_id: string) {
     console.log(' user service ... getting single user ');
     let url = this.apiUrl + '/user/';
-    this.http.get(url + user_id).subscribe((res) => {
-      //this.users = res;
-      //this.dataChangeSubject.next(true);
-      console.log(res);
-      //this.route.navigate(['/about']); // this works, but I need to figure out how to reload a page
-
-      // TODO: redirect to user-manager page
-    });
+    return this.http.get<User>(url + user_id);
   }
 
   login(username: string, password: string) {

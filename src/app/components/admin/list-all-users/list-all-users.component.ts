@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import { UsersRoutingModule } from '../user-manager/admin-routing.module';
+import { UsersRoutingModule } from '../../users/users-routing.module';
 import { UsersService } from '../../../service/users.service';
 import { User } from '../../../models/User';
 import { first } from 'rxjs/operators';

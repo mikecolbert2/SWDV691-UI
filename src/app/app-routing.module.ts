@@ -9,20 +9,17 @@ import { UpdateUserComponent } from './components/users/update-user/update-user.
 import { UserManagerComponent } from './components/admin/user-manager/user-manager.component';
 //import { ListAllUsersComponent } from './components/admin/list-all-users/list-all-users.component';
 
-
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'tasks', component: TasksComponent },
   { path: 'user/register', component: RegisterUserComponent },
-  { path: 'user/update', component: UpdateUserComponent },
+  { path: 'user/update/:user_id', component: UpdateUserComponent },
   { path: 'admin/user-manager', component: UserManagerComponent },
-  
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

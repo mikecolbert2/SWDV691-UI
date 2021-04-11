@@ -17,8 +17,6 @@ import { UserManagerComponent } from './components/admin/user-manager/user-manag
 import { ListAllUsersComponent } from './components/admin/list-all-users/list-all-users.component';
 import { UpdateUserComponent } from './components/users/update-user/update-user.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,15 +29,10 @@ import { UpdateUserComponent } from './components/users/update-user/update-user.
     RegisterUserComponent,
     UserManagerComponent,
     ListAllUsersComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
