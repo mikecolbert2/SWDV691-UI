@@ -88,8 +88,13 @@ export class UsersService {
   }
 
   // Update user
-  updateUser(user: any): void {
-    console.log('inside user service');
+  updateUser(users: User): void {
+    console.log(' user service ... updating user ');
+    console.log(users);
+    let url = this.apiUrl + '/user/';
+    this.http.put(url + this.users.user_id, users).subscribe((res) => {
+      this.router.navigate(['admin/user-manager']);
+    });
   }
 
   login(username: string, password: string) {
