@@ -82,7 +82,14 @@ export class UsersService {
   getById(user_id: string) {
     console.log(' user service ... getting single user ');
     let url = this.apiUrl + '/user/';
-    return this.http.get<User>(url + user_id);
+    console.log(url + user_id);
+    return this.http.get(url + user_id);
+    // this.users = res;
+  }
+
+  // Update user
+  updateUser(user: any): void {
+    console.log('inside user service');
   }
 
   login(username: string, password: string) {
