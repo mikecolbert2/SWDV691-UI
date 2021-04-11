@@ -21,3 +21,7 @@ ng generate module app-routing
 
 
 (ngSubmit)="onSubmit()
+
+
+  <button (click)="updateUser(user.user_id)">Update</button>
+  <button (click)="deleteUser(user.user_id)">Delete</button>

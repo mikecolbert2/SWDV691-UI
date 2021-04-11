@@ -15,6 +15,7 @@ import { FooterComponent } from './components/layouts/footer/footer.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
 import { UserManagerComponent } from './components/admin/user-manager/user-manager.component';
 import { ListAllUsersComponent } from './components/admin/list-all-users/list-all-users.component';
+import { UpdateUserComponent } from './components/users/update-user/update-user.component';
 
 
 
@@ -29,7 +30,8 @@ import { ListAllUsersComponent } from './components/admin/list-all-users/list-al
     FooterComponent,
     RegisterUserComponent,
     UserManagerComponent,
-    ListAllUsersComponent
+    ListAllUsersComponent,
+    UpdateUserComponent
   ],
   imports: [
     BrowserModule,
