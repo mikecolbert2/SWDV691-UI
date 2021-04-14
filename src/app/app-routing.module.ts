@@ -7,7 +7,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 import { RegisterUserComponent } from './components/users/register-user/register-user.component';
 import { UpdateUserComponent } from './components/users/update-user/update-user.component';
 import { UserManagerComponent } from './components/admin/user-manager/user-manager.component';
-//import { ListAllUsersComponent } from './components/admin/list-all-users/list-all-users.component';
+import { UserLoginComponent } from './components/users/user-login/user-login.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: 'user/register', component: RegisterUserComponent },
   { path: 'user/update/:user_id', component: UpdateUserComponent },
   { path: 'admin/user-manager', component: UserManagerComponent },
+  { path: 'login', component: UserLoginComponent },
 ];
 
 @NgModule({

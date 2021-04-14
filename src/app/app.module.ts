@@ -16,6 +16,7 @@ import { RegisterUserComponent } from './components/users/register-user/register
 import { UserManagerComponent } from './components/admin/user-manager/user-manager.component';
 import { ListAllUsersComponent } from './components/admin/list-all-users/list-all-users.component';
 import { UpdateUserComponent } from './components/users/update-user/update-user.component';
+import { UserLoginComponent } from './components/users/user-login/user-login.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { UpdateUserComponent } from './components/users/update-user/update-user.
     UserManagerComponent,
     ListAllUsersComponent,
     UpdateUserComponent,
+    UserLoginComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

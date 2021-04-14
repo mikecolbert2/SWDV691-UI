@@ -7,7 +7,7 @@ import { UsersService } from '../../../service/users.service';
   styleUrls: ['./register-user.component.scss'],
 })
 export class RegisterUserComponent implements OnInit {
-  @Output() registerUser: EventEmitter<any> = new EventEmitter();
+  //@Output() registerUser: EventEmitter<any> = new EventEmitter();
 
   user: any = [];
 
@@ -29,7 +29,7 @@ export class RegisterUserComponent implements OnInit {
       password: this.password,
       password2: this.password2,
     };
-    console.log('inside onSubmit');
+    console.log('inside registerNewUser in components.ts');
     console.log(user);
 
     //this.usersService.registerUser.emit(user);

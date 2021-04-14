@@ -12,3 +12,11 @@ This web application is my final project for my Master's in Software Development
 ### Prerequisites
 
 This repository is the front-end user interface and requires the backend service at [SWDV619 - Services](https://github.com/mikecolbert2/SWDV691-Services) to be installed and running first.
+
+
+
+### Read Heroku Logs
+ ```heroku login```
+ ```heroku logs --tail --app swdv691-services```
+
+ 

@@ -1,13 +1,13 @@
 import { Injectable, NgModule } from '@angular/core';
 //import { BehaviorSubject, Observable, pipe } from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, shareReplay, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 //import { UsersRoutingModule } from '../components/admin/user-manager/admin-routing.module';
 import { Subject } from 'rxjs';
-
 import { User } from '../models/User';
+import * as moment from 'moment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -80,20 +80,6 @@ export class UsersService {
     });
   }
 
-  // // Delete user
-  // removeUser(user_id: string) {
-  //   let url = this.apiUrl + '/user/';
-  //   return this.http.delete(url + user_id).pipe(
-  //     map((x) => {
-  //       // auto logout if the logged in user deleted their own record
-  //       if (user_id == this.userValue.user_id) {
-  //         this.logout();
-  //       }
-  //       return x;
-  //     })
-  //   );
-  // }
-
   // Get single user
   getById(user_id: string) {
     console.log(' user service ... getting single user ');
@@ -123,24 +109,32 @@ export class UsersService {
         this.dataChangeSubject.next(true);
       });
   }
-  login(username: string, password: string) {
-    // let url = this.apiUrl + '/user/login';
-    // return this.http
-    //   .post<User>(url, { username, password })
-    //   .pipe(
-    //     map((user) => {
-    //       // store user details and jwt token in local storage to keep user logged in between page refreshes
-    //       localStorage.setItem('user', JSON.stringify(user));
-    //       this.userSubject.next(user);
-    //       return user;
-    //     })
-    //   );
+
+  userSignIn(user: any) {
+    let email = user.email;
+    let password = user.password;
+    console.log('inside user service login');
+    console.log(email);
+    console.log(password);
+    let url = this.apiUrl + '/login';
+    console.log(url);
+    return this.http
+      .post<User>(url, { email, password })
+      .pipe(tap((res) => this.setSession))
+      .pipe(shareReplay());
+    //this.router.navigate(['/about']);
   }
 
-  logout() {
-    // // remove user from local storage and set current user to null
-    // localStorage.removeItem('user');
-    // this.userSubject.next(null as any);
-    // this.router.navigate(['/account/login']);
+  private setSession(authResult: any) {
+    const expiresAt = moment().add(authResult.expiresIn, 'second');
+    localStorage.setItem('id_token', authResult.idToken);
+    localStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
+  }
+
+  userSignOut() {
+    // remove user from local storage and set current user to null
+    localStorage.removeItem('id_token');
+    localStorage.removeItem('expires_at');
+    return;
   }
 }
