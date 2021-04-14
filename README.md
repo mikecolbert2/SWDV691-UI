@@ -51,11 +51,11 @@ const path = require('path');
 const app = express();
 
 // Serve only the static files form the dist directory
-app.use(express.static(__dirname + '/dist/<name-of-app-in-package.json>'));
+app.use(express.static(__dirname + '/dist/<name-of-app-in-angular.json>'));  //app-name is the name attribute "outputPath": "dist/app-name"
 
 app.get('/*', function(req,res) {
     
-res.sendFile(path.join(__dirname+'/dist/<name-of-appp-in-package.json>/index.html'));
+res.sendFile(path.join(__dirname+'/dist/<name-of-appp-in-angular.json>/index.html'));  //app-name is the name attribute "outputPath": "dist/app-name"
 });
 
 // Start the app by listening on the default Heroku port
