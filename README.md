@@ -1,27 +1,68 @@
-# SWDV691UI
+# Time Detective - User Interface
+![Angular](https://badges.aleen42.com/src/angular.svg)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+https://swdv691-ui.herokuapp.com/
 
-## Development server
+### SWDV691 - Software Development Capstone
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Time Detective is a web application which allows you to decide on important recurring tasks and track how much time you spend on each one. The application will provide summary statistics as well as allow the user to perform more detailed analytics about how they are spending their time.
 
-## Code scaffolding
+This web application is my final project for my Master's in Software Development from Maryville University.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+This repository is the front-end user interface and requires the backend service at [SWDV619 - Services](https://github.com/mikecolbert2/SWDV691-Services) to be installed and running first.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Read Heroku Logs
+ ```heroku login```
+ ```heroku logs --tail --app swdv691-services```
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+ ## Application prep for Heroku
+Summary of instructions from here: https://itnext.io/how-to-deploy-angular-application-to-heroku-1d56e09c5147
+  
+ - [ ] Ensure you have the latest version of angular cli and angular compiler cli : ```npm install @angular/cli@latest @angular/compiler-cli --save-dev```  
+  
+ - [ ] In package.json, copy "@angular/cli”: “x.x.x”, & "@angular/compiler-cli”: “x.x.x", from devDependencies to dependencies.
+ 
+ - [ ] In package.json, under "scripts" add "heroku-postbuild" ```"heroku-postbuild": "ng build --aot --prod"```  
+ 
+ - [ ] Add the node and npm engines Heroku will use to run the application:  ``` node -v``` & ``` npm -v ```. Include at the bottom of package.json. 
+```  "engines": {
+    "node": "x.x.x",
+    "npm": "x.x.x"
+  }
+```   
 
-## Further help
+- [ ] In package.json, copy "typescript" : "~x.x.x" from devDependencies to dependencies.  
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [ ] Install Enhanced Resolve 3.3.0 ``` npm install enhanced-resolve@latest --save-dev ```  
+
+- [ ] Install a server to run your app ``` npm install express path --save ```  
+
+- [ ] Create a server.js file in the application root.
+```
+//Install express server
+const express = require('express');
+const path = require('path');
+
+const app = express();
+
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist/<name-of-app-in-package.json>'));
+
+app.get('/*', function(req,res) {
+    
+res.sendFile(path.join(__dirname+'/dist/<name-of-appp-in-package.json>/index.html'));
+});
+
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 8080);
+console.log(`Running on port ${process.env.PORT || 8080}`)
+```  
+
+- [ ] In package.json, change the start command. ``` "start:prod": "node server.js" ```  
+
+- [ ] Create a Procfile in the application root. ``` web: npm run start:prod ```
