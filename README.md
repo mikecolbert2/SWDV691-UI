@@ -27,7 +27,7 @@ Summary of instructions from here: https://itnext.io/how-to-deploy-angular-appli
   
  - [ ] In package.json, copy "@angular/cli”: “x.x.x”, & "@angular/compiler-cli”: “x.x.x", from devDependencies to dependencies.
  
- - [ ] In package.json, under "scripts" add "heroku-postbuild" ```"heroku-postbuild": "ng build --aot --prod",```  
+ - [ ] In package.json, under "scripts", immediately under "build", add  ```"heroku-postbuild": "ng build --aot --prod",```  
  
  - [ ] Add the node and npm engines Heroku will use to run the application:  ``` node -v``` & ``` npm -v ```. Include at the bottom of package.json. 
 ```  "engines": {
@@ -65,4 +65,4 @@ console.log(`Running on port ${process.env.PORT || 8080}`)
 
 - [ ] In package.json, change the start command. ``` "start": "node server.js" ```  
 
-- [ ] Create a Procfile in the application root. ``` web: npm run start ```
+- [ ] Create a Procfile in the application root. ``` web: node --optimize_for_size --max_old_space_size=460 --gc_interval=100 server.js ```
