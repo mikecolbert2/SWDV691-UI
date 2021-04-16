@@ -43,3 +43,94 @@ h3 {
   font-size: 1.5rem;
   color: $gray;
 }
+
+.f0 {
+  background-color: $white;
+  border: 2px $blue solid;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.f1 {
+  background-color: $white;
+  border: 2px $yellow solid;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.f2 {
+  background-color: $white;
+  border: 2px $orange solid;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.f3 {
+  background-color: $white;
+  border: 2px $purple solid;
+  border-radius: 5px;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.textwrap-left {
+  float: left;
+  margin: 10px;
+}
+
+.textwrap-right {
+  float: right;
+  margin: 10px;
+}
+
+.btn-blue {
+  background-color: $blue;
+  color: $white;
+  width: 15rem;
+}
+
+.width {
+  width: 98%;
+  margin-left: 1px;
+}
+
+.wrapper {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+/* ------ HEADER ------ */
+.header {
+  background-color: $purple;
+  color: $white;
+}
+
+a.header {
+  color: $white;
+}
+
+/* ------ FOOTER ------ */
+.footer {
+  background-color: $purple;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.footer-text {
+  color: $white;
+  opacity: 0.5;
+}
+
+a.footer {
+  color: $white;
+}
