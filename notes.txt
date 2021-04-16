@@ -1,0 +1,132 @@
+$purple: #ab2d64;
+$yellow: #f9b438;
+$orange: #f25e46;
+$blue: #2e68e6;
+$gray: #333;
+$white: white;
+
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Roboto&display=swap);
+
+nav {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+p {
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.25rem;
+  color: $gray;
+}
+
+h1 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.25rem;
+  color: $gray;
+}
+
+h1.title {
+  color: white;
+}
+
+h2 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 1.75rem;
+  color: $gray;
+}
+
+h3 {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  color: $gray;
+}
+
+/*
+
+        .inputLabel {
+            font-family: "Open Sans", Helvetica, Arial, sans-serif;
+            color: #333;
+            font-size: 1.25rem;
+            input.inputField {
+                padding: 10px;
+                border: 1px solid #AB2D64;
+                border-radius: 8px;
+                margin-left:1rem;
+
+        a.nav,
+        a.nav:visited {
+            text-decoration: none;
+            color: white;
+        }
+
+        a.nav:hover {
+            color: #AB2D64;
+        }
+
+
+*/
+
+/*
+
+.header {
+  background-color: $purple;
+  color: $white;
+}
+
+a.header {
+  color: $white;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+/*@import "../../../../styles.scss";
+
+.footer {
+  background-color: $purple;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+.footer-text {
+  color: $white;
+  opacity: 0.5;
+}
+
+a.footer,
+a:visited.footer {
+  text-decoration: none;
+  color: $white;
+  opacity: 1;
+}
+
+a:hover.footer {
+  color: $gray;
+}
+*/
+
+
+
+
+
+
+
+
+
+"styles": [
+              "./src/styles.scss",
+              "./node_modules/bootstrap/dist/css/bootstrap.css",
+              "./node_modules/font-awesome/css/font-awesome.css"
+             
+            ],
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.js",
+              "./node_modules/popper.js/dist/umd/popper.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
+            ]
