@@ -1,0 +1,119 @@
+<h1>Create An Account</h1>
+
+<p>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate sed
+  perspiciatis magnam optio, odit aliquam provident non similique omnis
+  repudiandae debitis illo odio nemo sapiente enim tenetur harum excepturi?
+</p>
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-success"
+  data-toggle="modal"
+  data-target="#registerUserModal"
+>
+  Create An Account Now!
+</button>
+
+<p>
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem ex rem
+  natus mollitia ad corrupti illo nemo quos saepe nobis.
+</p>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="registerUserModal"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">
+          Register A New User
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form">
+          <div class="form-group">
+            <label class="lbl" for="first_name"> First Name: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="first_name"
+              [(ngModel)]="newUser.first_name"
+              autofocus
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl" for="last_name"> Last Name: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="last_name"
+              [(ngModel)]="newUser.last_name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl" for="email"> Email: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="email"
+              [(ngModel)]="newUser.email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl" for="password"> Password: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="password"
+              [(ngModel)]="newUser.password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl-confirm" for="password2">
+              Confirm Password:
+            </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="password2"
+              [(ngModel)]="newUser.password2"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          data-dismiss="modal"
+          (click)="onSaveClick()"
+        >
+          Create Account
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
