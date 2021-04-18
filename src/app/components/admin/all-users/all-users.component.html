@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of users; let i = index">
       <th scope="row">{{ user.user_id }}</th>
       <td>{{ user.first_name }}</td>
       <td>{{ user.last_name }}</td>
@@ -22,7 +22,14 @@
       <td>{{ user.date_created | date }}</td>
       <td>{{ user.last_login | date }}</td>
       <td style="white-space: nowrap">
-        <button class="btn btn-sm btn-danger btn-delete-user">Delete</button>
+        <button
+          class="btn btn-sm btn-secondary"
+          data-toggle="modal"
+          data-target="#editUserModal"
+          (click)="onDetailsClick($event, i)"
+        >
+          Details
+        </button>
       </td>
     </tr>
     <tr *ngIf="!users">
@@ -32,3 +39,144 @@
     </tr>
   </tbody>
 </table>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="editUserModal"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Edit User Details</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form">
+          <div class="form-group">
+            <label class="lbl" for="user_id"> User ID: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="user_id"
+              disabled="disabled"
+              [(ngModel)]="editUser.user_id"
+              autofocus
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl" for="first_name"> First Name: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="first_name"
+              [(ngModel)]="editUser.first_name"
+              autofocus
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl" for="last_name"> Last Name: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="last_name"
+              [(ngModel)]="editUser.last_name"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl" for="email"> Email: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="email"
+              [(ngModel)]="editUser.email"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl" for="password"> Password: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="password"
+              [(ngModel)]="editUser.password"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl-confirm" for="password2">
+              Confirm Password:
+            </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="password2"
+              [(ngModel)]="editUser.password2"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl-confirm" for="date_created">
+              Date Created:
+            </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="date_created"
+              [(ngModel)]="editUser.date_created"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="lbl-confirm" for="last_login">
+              Last Logged In:
+            </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="last_login"
+              [(ngModel)]="editUser.last_login"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-success"
+          data-dismiss="modal"
+          (click)="onUpdateClick()"
+        >
+          Update
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          data-dismiss="modal"
+          (click)="onDeleteClick()"
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

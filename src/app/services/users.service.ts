@@ -9,7 +9,8 @@ import { User } from '../models/user';
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  baseUrl = 'https://swdv691-services.herokuapp.com/api/';
+  // baseUrl = 'https://swdv691-services.herokuapp.com/api/';
+  baseUrl = 'http://localhost:5000/api/';
 
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl + 'admin/users');
@@ -18,4 +19,23 @@ export class UsersService {
   insertUser(newUser: User): Observable<User> {
     return this.http.post<User>(this.baseUrl + 'user', newUser);
   }
+
+  updateUser(editUser: User): Observable<User> {
+    console.log('user service');
+    console.log(editUser);
+    console.log('***');
+    return this.http.put<User>(this.baseUrl + 'user', editUser, {
+      responseType: 'json',
+    });
+  }
+
+  removeUser(user_id: string): Observable<string> {
+    return this.http.delete<string>(this.baseUrl + 'user/' + user_id);
+  }
+
+  // {
+  //   return this.http.delete<User>(this.baseUrl + 'user', editUser, {
+  //     responseType: 'json',
+  //   });
+  // }
 }
