@@ -32,10 +32,4 @@ export class UsersService {
   removeUser(user_id: string): Observable<string> {
     return this.http.delete<string>(this.baseUrl + 'user/' + user_id);
   }
-
-  // {
-  //   return this.http.delete<User>(this.baseUrl + 'user', editUser, {
-  //     responseType: 'json',
-  //   });
-  // }
 }
