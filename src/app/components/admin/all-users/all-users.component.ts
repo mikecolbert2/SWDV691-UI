@@ -50,37 +50,6 @@ export class AllUsersComponent implements OnInit {
         u.date_created = response.date_created;
         u.last_login = response.last_login;
         this.users[this.editIndex] = u;
-
-        // console.log('onUpdateClick');
-        // console.log(this.editUser);
-        // console.log(' ----- ');
-        // this.usersService.updateUser(this.editUser).subscribe(
-        //   (response) => {
-        //     console.log('response....');
-        //     console.log(response);
-        //     console.log('response first name...');
-        //     console.log(response.first_name);
-        //     var u: User = new User();
-        //     u.first_name = response.first_name;
-        //     u.last_name = response.last_name;
-        //     u.email = response.email;
-        //     u.password = response.password;
-        //     u.date_created = response.date_created;
-        //     u.last_login = response.last_login;
-        //     console.log(' u .... ');
-        //     console.log(u);
-        //     console.log('index ....');
-        //     console.log(this.editIndex);
-        //     this.users[this.editIndex] = u; //update the users array with this user detail from response
-
-        // this.editUser.user_id = '';
-        // this.editUser.first_name = '';
-        // this.editUser.last_name = '';
-        // this.editUser.email = '';
-        // this.editUser.password = '';
-        // this.editUser.password2 = '';
-        // this.editUser.date_created = '';
-        // this.editUser.last_login = '';
       },
       (error) => {
         console.log(error);
