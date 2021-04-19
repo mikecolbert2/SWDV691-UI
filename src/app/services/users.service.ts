@@ -24,9 +24,13 @@ export class UsersService {
     console.log('user service');
     console.log(editUser);
     console.log('***');
-    return this.http.put<User>(this.baseUrl + 'user', editUser, {
-      responseType: 'json',
-    });
+    return this.http.put<User>(
+      this.baseUrl + 'user/' + editUser.user_id,
+      editUser,
+      {
+        responseType: 'json',
+      }
+    );
   }
 
   removeUser(user_id: string): Observable<string> {

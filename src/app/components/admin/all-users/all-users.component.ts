@@ -33,7 +33,6 @@ export class AllUsersComponent implements OnInit {
     this.editUser.date_created = this.users[index].date_created;
     this.editUser.last_login = this.users[index].last_login;
     this.editIndex = index;
-    //this.deleteIndex = index;
   }
 
   onUpdateClick() {
