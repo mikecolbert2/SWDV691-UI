@@ -12,6 +12,7 @@ import { WelcomeComponent } from './components/pages/welcome/welcome.component';
 import { AdminModule } from './components/admin/admin.module';
 //import { RegisterComponent } from './components/users/register/register.component';
 import { UsersModule } from './components/users/users.module';
+import { LoginComponent } from './components/users/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { UsersModule } from './components/users/users.module';
     FooterComponent,
     AboutComponent,
     WelcomeComponent,
+    LoginComponent,
     //RegisterComponent,
   ],
   imports: [

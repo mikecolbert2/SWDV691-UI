@@ -4,4 +4,9 @@
     © 2021 Copyright:
     <a class="footer" href="https://timedetective.com/">TimeDetective.com</a>
   </div>
+  <div>
+    <p *ngIf="loginService.current_user != ''">
+      {{ loginService.logged_in_user.role_name }}
+    </p>
+  </div>
 </footer>
