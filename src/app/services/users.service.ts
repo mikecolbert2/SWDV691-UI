@@ -9,8 +9,8 @@ import { User } from '../models/user';
 export class UsersService {
   constructor(private http: HttpClient) {}
 
-  // baseUrl = 'https://swdv691-services.herokuapp.com/api/';
-  baseUrl = 'http://localhost:5000/api/';
+  baseUrl = 'https://swdv691-services.herokuapp.com/api/';
+  //baseUrl = 'http://localhost:5000/api/';
 
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseUrl + 'admin/users');
