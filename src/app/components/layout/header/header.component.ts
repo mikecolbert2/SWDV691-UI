@@ -9,6 +9,11 @@ import { User } from '../../../models/user';
 })
 export class HeaderComponent implements OnInit {
   constructor(public loginService: LoginService) {}
+  current_user_email: string = '';
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.current_user_email = JSON.parse(
+      sessionStorage.getItem('user_email') || '{}'
+    );
+  }
 }

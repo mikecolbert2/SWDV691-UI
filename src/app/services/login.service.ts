@@ -14,7 +14,9 @@ export class LoginService {
   baseUrl = 'https://swdv691-services.herokuapp.com/api/';
   //baseUrl = 'http://localhost:5000/api/';
 
-  current_user: string = '';
+  current_user: User = new User();
+  user_role: string = '';
+  user_email: string = '';
   logged_in_user: User = new User();
 
   public Login(loginViewModel: LoginViewModel): Observable<any> {
@@ -26,17 +28,39 @@ export class LoginService {
         responseType: 'json',
       })
       .pipe(
-        map((user) => {
-          if (user) {
-            this.current_user = user.email;
-            this.logged_in_user = user;
+        map((current_user) => {
+          if (current_user) {
+            console.log('current user:  ');
+            console.log(current_user);
+            //           //this.current_user = user.email;
+            //           //this.user_role = user.role_name;
+            //          this.logged_in_user = user;
+            //           sessionStorage.setItem('logged_in_user', JSON.stringify(user));
+            //           //sessionStorage.current = JSON.stringify(user);
+            console.log('email: ' + current_user.current_user.email);
+
+            sessionStorage.setItem(
+              'user_email',
+              JSON.stringify(current_user.current_user.email)
+            );
+            sessionStorage.setItem(
+              'user_id',
+              JSON.stringify(current_user.current_user.user_id)
+            );
+            sessionStorage.setItem(
+              'user_role',
+              JSON.stringify(current_user.current_user.role_name)
+            );
           }
-          return user;
+          return current_user;
         })
       );
   }
 
   public Logout() {
-    this.current_user = '';
+    sessionStorage.removeItem('user_email');
+    sessionStorage.removeItem('user_id');
+    sessionStorage.removeItem('user_role');
+    console.log('removed from session storage');
   }
 }

@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
 import { AboutComponent } from './components/pages/about/about.component';
@@ -13,6 +13,7 @@ import { AdminModule } from './components/admin/admin.module';
 //import { RegisterComponent } from './components/users/register/register.component';
 import { UsersModule } from './components/users/users.module';
 import { LoginComponent } from './components/users/login/login.component';
+import { HttpRequestInterceptor } from './http-request-interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,13 @@ import { LoginComponent } from './components/users/login/login.component';
     AdminModule,
     UsersModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpRequestInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

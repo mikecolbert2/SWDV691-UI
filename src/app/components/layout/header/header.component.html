@@ -22,23 +22,24 @@
             <a class="nav-link" href="/about">About</a>
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link"
-              href="/register"
-              *ngIf="loginService.current_user == ''"
-              >Register</a
-            >
+            <a class="nav-link" href="/register">Register</a>
           </li>
-          <li class="nav-item" *ngIf="loginService.current_user != ''">
+          <li class="nav-item">
             <a class="nav-link" href="/admin/user-manager">User Manager</a>
           </li>
-          <li class="nav-item" *ngIf="loginService.current_user == ''">
+          <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
-          <li class="nav-item" *ngIf="loginService.current_user != ''">
-            {{ loginService.current_user }}
+          <li class="nav-item" *ngIf="current_user_email != '{}'">
+            {{ current_user_email }}
           </li>
-          <li class="nav-item" *ngIf="loginService.current_user != ''">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tracker">Time Tracker</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="" (click)="loginService.Logout()"
               >Logout</a
             >

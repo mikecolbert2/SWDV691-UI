@@ -1,0 +1,43 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Task } from '../models/task';
+import { map } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class TasksService {
+  constructor(private http: HttpClient) {}
+
+  baseUrl = 'https://swdv691-services.herokuapp.com/api/';
+  //baseUrl = 'http://localhost:5000/api/';
+
+  newTask: Task = new Task();
+
+  getTasksForUser(user_id: string): Observable<Task[]> {
+    return this.http.get<Task[]>(this.baseUrl + 'user/tasks/' + user_id, {
+      responseType: 'json',
+    });
+  }
+
+  insertTask(newTask: Task): Observable<Task> {
+    return this.http.post<Task>(this.baseUrl + 'user/task', newTask);
+
+    // .pipe(
+    //   map((new_task) => {
+    //     if (new_task) {
+    //       console.log('new task:  ');
+    //       console.log(new_task);
+    //       console.log('task_name: ' + new_task.task_name);
+    //     }
+    //     return new_task;
+    //   })
+    // );
+  }
+
+  removeTask(deleteTaskId: string): Observable<Task> {
+    console.log('inisde task servcice:  ' + deleteTaskId);
+    return this.http.delete<Task>(this.baseUrl + 'user/task/' + deleteTaskId);
+  }
+}
