@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Task } from '../models/task';
-import { map } from 'rxjs/operators';
+//import { map } from 'rxjs/operators';
+import { TaskLog } from '../models/task-log';
 
 @Injectable({
   providedIn: 'root',
@@ -28,5 +29,14 @@ export class TasksService {
   removeTask(deleteTaskId: string): Observable<Task> {
     console.log('inisde task servcice:  ' + deleteTaskId);
     return this.http.delete<Task>(this.baseUrl + 'user/task/' + deleteTaskId);
+  }
+
+  getAllTasksLog(id: string): Observable<TaskLog[]> {
+    console.log('inside getAllTasksLog');
+    console.log(id);
+
+    return this.http.get<TaskLog[]>(this.baseUrl + 'user/tasks-log/' + id, {
+      responseType: 'json',
+    });
   }
 }

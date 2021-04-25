@@ -129,7 +129,9 @@ export class TasksComponent implements OnInit {
       (response) => {
         console.log('inside stopping timer response');
         console.log(response);
-        //data coming back from database
+        //data coming back from database - push into tasks_log?
+        //reload page
+        this.router.navigateByUrl('dashboard');
       },
       (error) => {
         console.log(error);
