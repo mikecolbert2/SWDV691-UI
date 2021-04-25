@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
 
         console.log(u);
 
-        this.router.navigate(['admin/user-manager']);
+        this.router.navigate(['login']);
 
         // //Clear New Project Dialog - TextBoxes
         // this.newUser.first_name = '';

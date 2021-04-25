@@ -32,11 +32,6 @@ export class LoginService {
           if (current_user) {
             console.log('current user:  ');
             console.log(current_user);
-            //           //this.current_user = user.email;
-            //           //this.user_role = user.role_name;
-            //          this.logged_in_user = user;
-            //           sessionStorage.setItem('logged_in_user', JSON.stringify(user));
-            //           //sessionStorage.current = JSON.stringify(user);
             console.log('email: ' + current_user.current_user.email);
 
             sessionStorage.setItem(
