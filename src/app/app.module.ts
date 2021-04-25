@@ -13,7 +13,7 @@ import { AdminModule } from './components/admin/admin.module';
 //import { RegisterComponent } from './components/users/register/register.component';
 import { UsersModule } from './components/users/users.module';
 import { LoginComponent } from './components/users/login/login.component';
-import { HttpRequestInterceptor } from './http-request-interceptor';
+// import { HttpRequestInterceptor } from './http-request-interceptor';
 
 @NgModule({
   declarations: [
@@ -34,11 +34,11 @@ import { HttpRequestInterceptor } from './http-request-interceptor';
     UsersModule,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpRequestInterceptor,
-      multi: true,
-    },
+    // {
+    //   // provide: HTTP_INTERCEPTORS,
+    //   // useClass: HttpRequestInterceptor,
+    //   // multi: true,
+    // },
   ],
   bootstrap: [AppComponent],
 })
