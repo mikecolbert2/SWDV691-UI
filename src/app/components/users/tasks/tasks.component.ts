@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Task } from '../../../models/task';
 import { TasksService } from '../../../services/tasks.service';
+import { Timer } from '../../../models/timer';
+import { TimersService } from '../../../services/timers.service';
 
 @Component({
   selector: 'app-tasks',
@@ -10,14 +12,21 @@ import { TasksService } from '../../../services/tasks.service';
   styleUrls: ['./tasks.component.scss'],
 })
 export class TasksComponent implements OnInit {
-  constructor(private tasksService: TasksService, private router: Router) {}
+  constructor(
+    private tasksService: TasksService,
+    private router: Router,
+    private timersService: TimersService
+  ) {}
 
   tasks: Task[] = [];
   user_id!: string | null;
   id!: string | null;
   newTask: Task = new Task();
-  deleteTaskId!: string | null;
   deleteTaskIndex = 0;
+  deleteTaskId!: string | null;
+  newTimer: Timer = new Timer();
+  startTimerIndex = 0;
+  startTimerTaskId!: string | null;
 
   ngOnInit(): void {
     this.user_id = sessionStorage.getItem('user_id');
@@ -85,6 +94,42 @@ export class TasksComponent implements OnInit {
     this.tasksService.removeTask(this.deleteTaskId).subscribe(
       (response) => {
         this.tasks.splice(this.deleteTaskIndex, 1); //update the users array with this user detail from response
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
+
+  startTimerClick = (index: number) => {
+    console.log('starting timer - ' + index);
+    this.newTimer.task_id = this.tasks[index].task_id;
+    this.newTimer.active = true;
+    //this.newTimer.start_time = Date.now() / 1000.0; //convert to seconds for Postgres
+    this.timersService.startTimer(this.newTimer).subscribe(
+      (response) => {
+        console.log('inside starting timer response');
+        console.log(response);
+        this.newTimer.log_id = response.log_id;
+        this.newTimer.start_time = response.start_time;
+        console.log('log_id:  ' + response.log_id);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
+
+  stopTimerClick = () => {
+    console.log('stopping timer ');
+    console.log(this.newTimer);
+    //this.newTimer.end_time = Date.now() / 1000.0; //convert to seconds for Postgres
+    this.newTimer.active = false;
+    this.timersService.stopTimer(this.newTimer).subscribe(
+      (response) => {
+        console.log('inside stopping timer response');
+        console.log(response);
+        //data coming back from database
       },
       (error) => {
         console.log(error);

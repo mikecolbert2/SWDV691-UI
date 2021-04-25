@@ -23,17 +23,6 @@ export class TasksService {
 
   insertTask(newTask: Task): Observable<Task> {
     return this.http.post<Task>(this.baseUrl + 'user/task', newTask);
-
-    // .pipe(
-    //   map((new_task) => {
-    //     if (new_task) {
-    //       console.log('new task:  ');
-    //       console.log(new_task);
-    //       console.log('task_name: ' + new_task.task_name);
-    //     }
-    //     return new_task;
-    //   })
-    // );
   }
 
   removeTask(deleteTaskId: string): Observable<Task> {

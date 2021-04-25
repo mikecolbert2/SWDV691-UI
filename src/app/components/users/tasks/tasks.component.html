@@ -12,20 +12,30 @@
 
 <div *ngFor="let task of tasks; let i = index">
   <form>
+    <button type="button" class="btn btn-primary" (click)="startTimerClick(i)">
+      Start Timer
+    </button>
+
+    <button type="button" class="btn btn-warning" (click)="stopTimerClick()">
+      Stop Timer
+    </button>
+
     <input
       class="inputbox"
       type="text"
       name="task_name"
       [(ngModel)]="task.task_name"
       value=" {{ task.task_name }} "
+      readonly
     />
+
     <button type="button" class="btn btn-danger" (click)="onDeleteClick(i)">
       Delete
     </button>
   </form>
 </div>
 
-<!-- Modal -->
+<!--Add Task modal -->
 <div
   class="modal fade"
   id="addTaskModal"
@@ -39,6 +49,60 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Track A New Task</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form">
+          <div class="form-group">
+            <label class="lbl" for="task_name"> Task Name: </label>
+            <input
+              class="inputbox"
+              type="text"
+              name="task_name"
+              [(ngModel)]="newTask.task_name"
+              autofocus
+            />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          data-dismiss="modal"
+          (click)="onSaveClick()"
+        >
+          Track Task
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Timer modal -->
+<div
+  class="modal fade"
+  id="timerModal"
+  data-backdrop="static"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Timer Started</h5>
         <button
           type="button"
           class="close"
