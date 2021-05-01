@@ -1,1 +1,44 @@
-<p>timers works!</p>
+<div class="inline-card" *ngFor="let task of tasks; let i = index">
+  <div class="col-sm-6">
+    <div class="card" style="width: 18rem">
+      <div id="taskOne" class="card-body">
+        <h5 class="card-title">{{ task.task_name }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <p class="card-text"></p>
+        <p>
+          <button
+            style="width: 12rem"
+            type="button"
+            id="{{ task.task_id }}"
+            class="btn btn-secondary btn-lg"
+            (click)="startTimerClick(i)"
+          >
+            Start Task
+          </button>
+        </p>
+        <p>
+          <button
+            *ngIf="stop_id != task.task_id"
+            class="btn btn-lg"
+            style="width: 12rem; visibility: hidden"
+            type="button"
+          >
+            x
+          </button>
+          <button
+            *ngIf="stop_id === task.task_id"
+            style="width: 12rem"
+            type="button"
+            id="{{ task.task_id }}"
+            class="btn btn-lg"
+            [class]="button_value > 0 ? 'btn-danger' : 'btn-light'"
+            (click)="stopTimerClick()"
+          >
+            End Task
+          </button>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<br clear="all" />

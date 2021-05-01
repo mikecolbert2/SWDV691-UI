@@ -19,7 +19,14 @@ export class LoginComponent implements OnInit {
   onLoginClick(event: any) {
     this.loginService.Login(this.loginViewModel).subscribe(
       (response) => {
-        this.router.navigateByUrl('dashboard');
+        this.router;
+        this.router
+          .navigateByUrl('/tracker')
+          //.navigateByUrl('/login', { skipLocationChange: true })
+          .then(() => {
+            //this.router.navigate(['Your actualComponent']);
+            location.reload();
+          });
       },
       (error) => {
         console.log(error);

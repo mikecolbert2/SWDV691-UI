@@ -1,5 +1,5 @@
 // import bootstrap css
-@import "~bootstrap/dist/css/bootstrap.css";
+//@import "~bootstrap/dist/css/bootstrap.css";
 
 $purple: #ab2d64;
 $yellow: #f9b438;
@@ -97,6 +97,23 @@ h3 {
   background-color: $blue;
   color: $white;
   width: 15rem;
+}
+
+.btn-purple {
+  background-color: $purple;
+  color: $white;
+  width: 15rem;
+}
+
+.bg-purple {
+  background-color: $purple;
+  color: $white;
+}
+
+.inline-card {
+  display: inline-block;
+
+  overflow: hidden;
 }
 
 .width {

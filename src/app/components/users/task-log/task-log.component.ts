@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskLog } from '../../../models/task-log';
 import { TasksService } from '../../../services/tasks.service';
+//import * as moment from 'moment';
 
 @Component({
   selector: 'app-task-log',
@@ -12,6 +13,9 @@ export class TaskLogComponent implements OnInit {
   task_logs: TaskLog[] = [];
   user_id!: string | null | undefined;
   id!: string | null;
+  deleteLogEntryIndex = 0;
+  deleteLogEntryId!: string | null | undefined;
+  //startDate: moment.Moment = moment();
 
   constructor(public tasksService: TasksService, private router: Router) {}
 
@@ -33,15 +37,15 @@ export class TaskLogComponent implements OnInit {
     console.log('inside delete task log entry');
     console.log('log id:  ' + this.task_logs[index].log_id);
 
-    // this.deleteTaskIndex = index;
-    // this.deleteTaskId = this.tasks[index].task_id;
-    // this.tasksService.removeTask(this.deleteTaskId).subscribe(
-    //   (response) => {
-    //     this.tasks.splice(this.deleteTaskIndex, 1); //update the users array with this user detail from response
-    //   },
-    //   (error) => {
-    //     console.log(error);
-    //   }
-    // );
+    this.deleteLogEntryIndex = index;
+    this.deleteLogEntryId = this.task_logs[index].log_id;
+    this.tasksService.removeTaskLogEntry(this.deleteLogEntryId).subscribe(
+      (response) => {
+        this.task_logs.splice(this.deleteLogEntryIndex, 1); //update the users array with this user detail from response
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   };
 }

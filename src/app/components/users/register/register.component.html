@@ -1,4 +1,4 @@
-<h1>Create An Account</h1>
+<h1 class="pb-2">Create An Account</h1>
 
 <p>
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic cupiditate sed
@@ -8,9 +8,9 @@
 <!-- Button trigger modal -->
 <button
   type="button"
-  class="btn btn-success"
-  data-toggle="modal"
-  data-target="#registerUserModal"
+  class="btn btn-blue m-4"
+  data-bs-toggle="modal"
+  data-bs-target="#registerUserModal"
 >
   Create An Account Now!
 </button>
@@ -39,7 +39,7 @@
         <button
           type="button"
           class="close"
-          data-dismiss="modal"
+          data-bs-dismiss="modal"
           aria-label="Close"
         >
           <span aria-hidden="true">&times;</span>
@@ -48,9 +48,9 @@
       <div class="modal-body">
         <form class="form">
           <div class="form-group">
-            <label class="lbl" for="first_name"> First Name: </label>
+            <label class="control-label" for="first_name"> First Name: </label>
             <input
-              class="inputbox"
+              class="form-control input-lg"
               type="text"
               name="first_name"
               [(ngModel)]="newUser.first_name"
@@ -59,9 +59,9 @@
           </div>
 
           <div class="form-group">
-            <label class="lbl" for="last_name"> Last Name: </label>
+            <label class="control-label" for="last_name"> Last Name: </label>
             <input
-              class="inputbox"
+              class="form-control input-lg"
               type="text"
               name="last_name"
               [(ngModel)]="newUser.last_name"
@@ -69,9 +69,9 @@
           </div>
 
           <div class="form-group">
-            <label class="lbl" for="email"> Email: </label>
+            <label class="control-label" for="email"> Email: </label>
             <input
-              class="inputbox"
+              class="form-control input-lg"
               type="text"
               name="email"
               [(ngModel)]="newUser.email"
@@ -79,9 +79,9 @@
           </div>
 
           <div class="form-group">
-            <label class="lbl" for="password"> Password: </label>
+            <label class="control-label" for="password"> Password: </label>
             <input
-              class="inputbox"
+              class="form-control input-lg"
               type="text"
               name="password"
               [(ngModel)]="newUser.password"
@@ -89,11 +89,11 @@
           </div>
 
           <div class="form-group">
-            <label class="lbl-confirm" for="password2">
+            <label class="control-label" for="password2">
               Confirm Password:
             </label>
             <input
-              class="inputbox"
+              class="form-control input-lg"
               type="text"
               name="password2"
               [(ngModel)]="newUser.password2"
@@ -102,13 +102,13 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
           Close
         </button>
         <button
           type="button"
-          class="btn btn-success"
-          data-dismiss="modal"
+          class="btn btn-blue"
+          data-bs-dismiss="modal"
           (click)="onSaveClick()"
         >
           Create Account

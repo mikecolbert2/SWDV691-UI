@@ -39,4 +39,13 @@ export class TasksService {
       responseType: 'json',
     });
   }
+
+  removeTaskLogEntry(deleteLogEntryId: string): Observable<TaskLog> {
+    console.log(
+      'inside task service - delete task log entry: ' + deleteLogEntryId
+    );
+    return this.http.delete<TaskLog>(
+      this.baseUrl + 'user/task_log/' + deleteLogEntryId
+    );
+  }
 }

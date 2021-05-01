@@ -1,9 +1,9 @@
+<h3 class="pb-3">Log Of Each Task I've Completed:</h3>
 <div>
   <table class="table table-hover">
     <thead>
       <tr>
-        <th scope="col">Log ID</th>
-        <th scope="col">Task</th>
+        <th scope="col">Task Name</th>
         <th scope="col">Start Time</th>
         <th scope="col">End Time</th>
         <th scope="col">Total Time</th>
@@ -11,10 +11,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let task_log of task_logs; let i = index">
-        <th scope="row">{{ task_log.log_id }}</th>
-        <td>{{ task_log.task_name }}</td>
-        <td>{{ task_log.start_time }}</td>
-        <td>{{ task_log.end_time }}</td>
+        <th scope="row">{{ task_log.task_name }}</th>
+        <td>{{ task_log.start_time | date: "short" }}</td>
+        <td>{{ task_log.end_time | date: "short" }}</td>
         <td>{{ task_log.total_time }}</td>
         <td style="white-space: nowrap">
           <button
@@ -34,3 +33,4 @@
     </tbody>
   </table>
 </div>
+<script src="node_modules/moment/moment.js"></script>

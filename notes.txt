@@ -1,9 +1,33 @@
+ 
+// Add API endpoint to delete a task_log entry
+// Sort task log with newest on top
+
+// Figure out total time
+
+// Figure out how to handle passwords in user update
+
+// Display count and cumulative time for tasks on dashboard table
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  <tr>
       <td colspan="4" class="text-center">
         <span class="spinner-border spinner-border-lg align-center"></span>
       </td>
     </tr>
 
+
+    <!-- Bootstrap 4 stylesheet from CDN -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
 
 
     <script

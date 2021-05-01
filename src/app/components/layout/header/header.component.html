@@ -21,31 +21,39 @@
           <li class="nav-item">
             <a class="nav-link" href="/about">About</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="(current_user_email | json) == '{}'">
             <a class="nav-link" href="/register">Register</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/admin/user-manager">User Manager</a>
-          </li>
-          <li class="nav-item">
+
+          <li class="nav-item" *ngIf="(current_user_email | json) == '{}'">
             <a class="nav-link" href="/login">Login</a>
           </li>
-          <li class="nav-item" *ngIf="current_user_email != '{}'">
-            {{ current_user_email }}
-          </li>
-          <li class="nav-item">
+
+          <li class="nav-item" *ngIf="(current_user_email | json) != '{}'">
             <a class="nav-link" href="/dashboard">Dashboard</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="(current_user_email | json) != '{}'">
             <a class="nav-link" href="/tracker">Time Tracker</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="(current_user_email | json) != '{}'">
             <a class="nav-link" href="" (click)="loginService.Logout()"
               >Logout</a
             >
+          </li>
+
+          <li class="nav-item" *ngIf="current_user_role == 'admin'">
+            <a class="nav-link" href="/admin/user-manager">User Manager</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
+  <div>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item mt-2" *ngIf="(current_user_email | json) != '{}'">
+        {{ current_user_email }}
+      </li>
+    </ul>
+    <hr />
+  </div>
 </header>
