@@ -15,7 +15,7 @@
         <td style="white-space: nowrap">
           <button
             type="button"
-            class="btn btn-danger"
+            class="btn btn-danger trigger-btn"
             (click)="onDeleteClick(i)"
           >
             Delete
@@ -45,7 +45,7 @@
   </button>
 </div>
 
-<!--Add Task modal -->
+<!--add task modal -->
 <div
   class="modal fade"
   id="addTaskModal"
@@ -62,7 +62,7 @@
         <button
           type="button"
           class="close"
-          data-dismiss="modal"
+          data-bs-dismiss="modal"
           aria-label="Close"
         >
           <span aria-hidden="true">&times;</span>
@@ -94,6 +94,36 @@
         >
           Track Task
         </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- delete confirmation modal -->
+<div id="deleteConfirm" class="modal fade">
+  <div class="modal-dialog modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Are You Sure?</h5>
+        <button
+          type="button"
+          class="close"
+          data-bs-dismiss="modal"
+          aria-hidden="true"
+        >
+          &times;
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Do you really want to delete this task? This process cannot be undone.
+        </p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cancel
+        </button>
+        <button type="button" id="delete" class="btn btn-danger">Delete</button>
       </div>
     </div>
   </div>

@@ -45,7 +45,7 @@ export class TasksService {
       'inside task service - delete task log entry: ' + deleteLogEntryId
     );
     return this.http.delete<TaskLog>(
-      this.baseUrl + 'user/task_log/' + deleteLogEntryId
+      this.baseUrl + 'user/tasks-log/' + deleteLogEntryId
     );
   }
 }

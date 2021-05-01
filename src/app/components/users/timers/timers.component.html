@@ -1,4 +1,8 @@
-<div class="inline-card" *ngFor="let task of tasks; let i = index">
+<a *ngIf="tasks.length == 0" href="dashboard">
+  <button type="button" class="btn btn-blue m-4">Add Tasks</button></a
+>
+
+<div class="inline-card m-4" *ngFor="let task of tasks; let i = index">
   <div class="col-sm-6">
     <div class="card" style="width: 18rem">
       <div id="taskOne" class="card-body">

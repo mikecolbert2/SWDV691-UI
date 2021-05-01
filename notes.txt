@@ -1,19 +1,24 @@
- 
-// Add API endpoint to delete a task_log entry
-// Sort task log with newest on top
+// clean up the README 
 
-// Figure out total time
+x// can I use a modal as a delete prompt? -- https://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=delete-confirmation-modal
 
-// Figure out how to handle passwords in user update
+// Figure out total time for task_log
 
-// Display count and cumulative time for tasks on dashboard table
+// Display count and cumulative time for tasks on dashboard table - SQL or JavaScript
+
+
+
+
  
  
- 
- 
- 
- 
- 
+ DONE:
+ // Sort task log with newest on top
+ // Add a link to add tasks if there are none
+ // set password fields to *
+ // Add API endpoint to delete a task_log entry
+ // Convert to correct time on task_log
+ // Figure out how to handle passwords in user update
+
  
  
  <tr>

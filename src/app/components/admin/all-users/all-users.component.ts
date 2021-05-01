@@ -28,8 +28,6 @@ export class AllUsersComponent implements OnInit {
     this.editUser.last_name = this.users[index].last_name;
     this.editUser.email = this.users[index].email;
     this.editUser.role_name = this.users[index].role_name;
-    this.editUser.password = this.users[index].password;
-    this.editUser.password2 = this.users[index].password2;
     this.editUser.date_created = this.users[index].date_created;
     this.editUser.last_login = this.users[index].last_login;
     this.editIndex = index;
@@ -45,10 +43,11 @@ export class AllUsersComponent implements OnInit {
         u.first_name = response.first_name;
         u.last_name = response.last_name;
         u.email = response.email;
-        u.password = response.password;
+        u.role_name = response.role_name;
         u.date_created = response.date_created;
         u.last_login = response.last_login;
         this.users[this.editIndex] = u;
+        location.reload();
       },
       (error) => {
         console.log(error);

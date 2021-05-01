@@ -12,7 +12,9 @@
     <tbody>
       <tr *ngFor="let task_log of task_logs; let i = index">
         <th scope="row">{{ task_log.task_name }}</th>
-        <td>{{ task_log.start_time | date: "short" }}</td>
+        <td>
+          {{ task_log.end_time | date: "short" }}
+        </td>
         <td>{{ task_log.end_time | date: "short" }}</td>
         <td>{{ task_log.total_time }}</td>
         <td style="white-space: nowrap">

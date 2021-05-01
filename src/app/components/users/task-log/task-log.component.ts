@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TaskLog } from '../../../models/task-log';
 import { TasksService } from '../../../services/tasks.service';
-//import * as moment from 'moment';
+import * as moment from 'moment';
+import 'moment-timezone';
 
 @Component({
   selector: 'app-task-log',
@@ -33,10 +34,17 @@ export class TaskLogComponent implements OnInit {
     }
   }
 
+  formatDate = (date_to_format: any) => {
+    let tz: string = moment.tz.guess();
+    console.log(tz);
+    return moment.tz(date_to_format, tz).format('MMMM Do YYYY, h:mm:ss a z');
+
+    //moment.tz("2014-06-01 12:00", "America/New_York");
+  };
+
   onTaskLogDeleteClick = (index: number) => {
     console.log('inside delete task log entry');
     console.log('log id:  ' + this.task_logs[index].log_id);
-
     this.deleteLogEntryIndex = index;
     this.deleteLogEntryId = this.task_logs[index].log_id;
     this.tasksService.removeTaskLogEntry(this.deleteLogEntryId).subscribe(

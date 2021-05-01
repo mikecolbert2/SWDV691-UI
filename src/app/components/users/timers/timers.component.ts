@@ -35,6 +35,7 @@ export class TimersComponent implements OnInit {
       const id = this.user_id.slice(1, -1);
       console.log('user_id:  ' + id);
       this.tasksService.getTasksForUser(id).subscribe((response: Task[]) => {
+        console.log(this.tasks);
         this.tasks = response;
       });
     } else {
